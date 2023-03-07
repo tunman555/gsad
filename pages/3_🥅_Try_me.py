@@ -9,6 +9,10 @@ import cv2
 st.set_page_config(page_title="Try me 🤩 !")
 st.markdown("# Try me 🤩!")
 
+
+if not os.path.isdir('./tmp'):
+   os.makedirs('./tmp')
+
 st.sidebar.title("About")
 st.sidebar.info(
     """
@@ -19,7 +23,7 @@ st.sidebar.info(
 temporary_location = False
 
 def detect_video():
-	detect.run(weights='./src/weight.pt',img=640,conf_thres=0.5,source='./tmp/video.mp4',project='./tmp/',exist_ok=True)
+	detect.run(weights='./src/weight.pt',img=640,conf_thres=0.5,source='./tmp/video.mp4',project=./tmp/,exist_ok=True)
 	return open('./tmp/exp/video.mp4','rb')
 
 
@@ -53,8 +57,6 @@ if vid_file is not None :
 	with open('./tmp/video.mp4','wb') as out:
 		out.write(g.read())
 	out.close()
-	
-	print(os.listdir("./tmp/exp"))
 
 	detected_vid = detect_video()
 	vid_bytes = detected_vid.read()
