@@ -53,7 +53,7 @@ if vid_file is not None :
 		out.write(g.read())
 	out.close()
 	
-	print(os.listdir("./tmp/exp/*"))
+	print(os.listdir("./tmp/exp"))
 
 	detected_vid = detect_video()
 	vid_bytes = detected_vid.read()
