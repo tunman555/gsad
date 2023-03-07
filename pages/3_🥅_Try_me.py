@@ -4,8 +4,7 @@ import os
 from PIL import Image
 from yolov5 import detect
 import cv2 
-import glob
-print(glob.glob("/tmp/exp/*"))
+
 
 st.set_page_config(page_title="Try me 🤩 !")
 st.markdown("# Try me 🤩!")
@@ -53,7 +52,9 @@ if vid_file is not None :
 	with open('./tmp/video.mp4','wb') as out:
 		out.write(g.read())
 	out.close()
-	print(glob.glob("/tmp/exp/*"))
+	
+	print(os.listdir("./tmp/exp/*"))
+
 	detected_vid = detect_video()
 	vid_bytes = detected_vid.read()
 	st.video(vid_bytes) 
