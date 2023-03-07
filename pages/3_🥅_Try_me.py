@@ -10,8 +10,8 @@ st.set_page_config(page_title="Try me 🤩 !")
 st.markdown("# Try me 🤩!")
 
 
-if not os.path.isdir('./tmp'):
-   os.makedirs('./tmp')
+if not os.path.isdir('./tmp/exp'):
+   os.makedirs('./tmp/exp')
 
 st.sidebar.title("About")
 st.sidebar.info(
@@ -23,7 +23,7 @@ st.sidebar.info(
 temporary_location = False
 
 def detect_video():
-	detect.run(weights='./src/weight.pt',img=640,conf_thres=0.5,source='./tmp/video.mp4',project=./tmp/,exist_ok=True)
+	detect.run(weights='./src/weight.pt',img=640,conf_thres=0.5,source='./tmp/video.mp4',project='./tmp/',exist_ok=True)
 	return open('./tmp/exp/video.mp4','rb')
 
 
