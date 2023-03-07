@@ -38,20 +38,12 @@ if img_file is not None :
 	image = Image.open(img_file,mode='r')
 	rgb_img = image.convert('RGB')
 	rgb_img.save('./tmp/image.jpg')
-	
-	
-	#with open('./tmp/image.jpg', 'wb') as f: 
-	#	f.write(image)
-	print(os.listdir("./tmp/exp"))
-	
-	#detected_img = Image.open('./tmp/image.jpg')
 	detected_img = detect_image()
 	st.image(detected_img) 
 
-
 st.markdown("#### Or Video")
 vid_file = st.file_uploader("Choose video file")
-"""if vid_file is not None :
+if vid_file is not None :
 	g = io.BytesIO(vid_file.read())
 	
 	with open('./tmp/video.mp4','wb') as out:
@@ -61,22 +53,3 @@ vid_file = st.file_uploader("Choose video file")
 	detected_vid = open('./tmp/exp/video.mp4','rb') 
 	vid_bytes = detected_vid.read()
 	st.video(vid_bytes) 
-"""
-if vid_file is not None :
-	model = torch.hub.load('ultralytics/yolov5', 'custom', './src/weight.pt',force_reload=True) 
-	
-	conf_threshold = 0.5
-	video_file = cv2.VideoCapture(vid_file)
-	while video_file.isOpened():
-        # Read the next frame
-		ret, frame = video_file.read()
-		if not ret:
-		    break
-		# Convert frame to RGB format
-		frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-		# Detect objects in the frame
-		result = detect(frame, model)
-		# Display the frame with detected objects
-		st.video(result.image[:, :, ::-1])
-		st.write(result.pred)
-	video_file.release()
