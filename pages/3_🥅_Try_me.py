@@ -23,7 +23,7 @@ st.sidebar.info(
 temporary_location = False
 
 def detect_video():
-	detect.run(weights='./src/weight.pt',img=640,conf_thres=0.5,source='./tmp/video.mp4',project='./tmp/',exist_ok=True)
+	detect.run(weights='./src/weight.pt',conf_thres=0.5,source='./tmp/video.mp4',project='./tmp/',exist_ok=True)
 	return open('./tmp/exp/video.mp4','rb')
 
 
