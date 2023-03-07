@@ -49,12 +49,9 @@ st.markdown("#### Or Video")
 vid_file = st.file_uploader("Choose retrain video file")
 if vid_file is not None :
 	g = io.BytesIO(vid_file.read())
-	print(ls
-
 
 	with open('./tmp/video.mp4','wb') as out:
 		out.write(g.read())
-
 	out.close()
 
 	detected_vid = detect_video()
