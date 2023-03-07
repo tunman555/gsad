@@ -38,7 +38,8 @@ if img_file is not None :
 	
 	#with open('./tmp/image.jpg', 'wb') as f: 
 	#	f.write(image)
-
+	print(os.listdir("./tmp/exp"))
+	
 	#detected_img = Image.open('./tmp/image.jpg')
 	detected_img = detect_image()
 	st.image(detected_img) 
