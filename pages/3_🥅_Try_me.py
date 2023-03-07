@@ -4,7 +4,7 @@ import os
 from PIL import Image
 from yolov5 import detect
 import cv2 
-
+import torch
 
 st.set_page_config(page_title="Try me 🤩 !")
 st.markdown("# Try me 🤩!")
