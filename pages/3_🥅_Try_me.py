@@ -4,6 +4,8 @@ import os
 from PIL import Image
 from yolov5 import detect
 import cv2 
+import glob
+print(glob.glob("/tmp/exp/*"))
 
 st.set_page_config(page_title="Try me 🤩 !")
 st.markdown("# Try me 🤩!")
@@ -47,6 +49,7 @@ st.markdown("#### Or Video")
 vid_file = st.file_uploader("Choose retrain video file")
 if vid_file is not None :
 	g = io.BytesIO(vid_file.read())
+	print(ls
 
 
 	with open('./tmp/video.mp4','wb') as out:
