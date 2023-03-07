@@ -58,6 +58,6 @@ if vid_file is not None :
 		out.write(g.read())
 	out.close()
 	#detect_video()
-	detected_vid = open('./tmp/video.mp4','rb') 
+	detected_vid = open('./tmp/exp/video.mp4','rb') 
 	vid_bytes = detected_vid.read()
 	st.video(vid_bytes) 
